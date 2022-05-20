@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>ABONNEMENTS</title>{% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-around mt-4">
+
+    <div class="col-10 card text-center mb-4">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Suivre d'autres utilisateurs</h3>
+
+          <form method="post">
+            {# {{ form.as_p }}
+            {% csrf_token %} #}
+            <button type="submit" class="btn btn-outline-primary">Envoyer</button>
+        </form>
+
+        </div> 
+    </div>
+        
+    <div class="col-10 card text-center mb-4">
+        <div class="card-body">
+           
+            <h3 class="card-title mb-4">Abonnements</h3>
+            
+            
+        </div> 
+    </div>
+
+    <div class="col-10 card text-center">
+        <div class="card-body">
+           
+            <h3 class="card-title mb-4">Abonnés</h3>
+
+            
+            
+        </div> 
+    </div>
+
+  </div>
+
+{% endblock content %}

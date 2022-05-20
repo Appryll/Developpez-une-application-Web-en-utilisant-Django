@@ -1,0 +1,18 @@
+body{
+    background: yellowgreen;
+}
+
+.nav-link {
+    margin-right: 20px;
+    font-size: 16px;
+    font-size: 20px;
+    font-family: revert;
+}
+
+.navbar{
+    background-color: #17a3b8b4;
+}
+
+.card{
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}

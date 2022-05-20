@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}<title>INSCRIPTION</title>{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-4">
+
+    <div class="card col-10 ">
+        <h3 class="card-title text-center mb-4">Inscription</h3>
+        {# {% if form.errors %}
+            {{ form.errors }}
+        {% endif %} #}
+
+        <div class="card-body">
+            <form action="" method="post" novalidate>
+                {# {{ form.as_p }}
+                {% csrf_token %} #}
+                <button type="submit" class="btn btn-outline-primary">S’inscrire</button>
+            </form>
+        </div>
+         
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>LOGIN</title>{% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-around mt-4">
+
+    <div class="col-4 card text-center">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Inscrivez-vous maintenant</h3>
+          <a href="{% url 'signup' %}" class="btn btn-outline-primary" role="button">S'inscrire</a>
+        </div> 
+    </div>
+        
+    <div class="col-4 card text-center">
+        <div class="card-body">
+            {# <p>{{ message }}</p> #}
+            <h3 class="card-title mb-4">Connectez-vous</h3>
+            <form method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-primary">Se connecter</button>
+            </form> 
+        </div> 
+    </div>
+
+  </div>
+
+{% endblock content %}
