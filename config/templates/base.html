@@ -21,7 +21,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        
+        {% if profile.is_authenticated %}
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
 
@@ -40,11 +40,11 @@
               <a class="nav-link active" aria-current="page" href="#">Abonnements</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Se déconnecter</a>
+              <a class="nav-link" href="{% url 'logout' %}">Se déconnecter</a>
             </li>
           </ul>
         </div>
-        
+        {% endif %}
 
       </div>
     </nav>

@@ -8,14 +8,14 @@
 
     <div class="card col-10 ">
         <h3 class="card-title text-center mb-4">Inscription</h3>
-        {# {% if form.errors %}
+        {% if form.errors %}
             {{ form.errors }}
-        {% endif %} #}
+        {% endif %}
 
         <div class="card-body">
             <form action="" method="post" novalidate>
-                {# {{ form.as_p }}
-                {% csrf_token %} #}
+                {{ form.as_p }}
+                {% csrf_token %}
                 <button type="submit" class="btn btn-outline-primary">S’inscrire</button>
             </form>
         </div>
