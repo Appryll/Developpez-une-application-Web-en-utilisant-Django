@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'authentication.apps.AuthenticationConfig',
     'ticket.apps.TicketConfig',
-    'django.contrib.humanize',
+    'flux.apps.FluxConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,8 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'flux'
 
-MEDIA_URL = '/img/'
-MEDIA_ROOT = BASE_DIR.joinpath('img/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media/')
 

@@ -4,12 +4,6 @@ from django.conf import settings
 from authentication import forms
 from django.contrib import messages
 
-
-#deconection
-def logout_user(request):
-    logout(request)
-    return redirect('login')
-
 #register
 def signup_page(request):
     form = forms.UserRegisterForm()
@@ -19,9 +13,12 @@ def signup_page(request):
             form.save()
             username = form.cleaned_data['username']
             messages.success(request, f'Utilisateur {username} créé avec succès. Maintenaint vous pouvez vous connecter')
-            # return redirect(settings.LOGIN_REDIRECT_URL)
-            return redirect('login')
+            return redirect(settings.LOGIN_REDIRECT_URL)
         else:
             form = forms.UserRegisterForm()
-    
     return render(request, 'authentication/signup.html', { 'form': form })
+
+#deconection
+def logout_user(request):
+    logout(request)
+    return redirect('login')

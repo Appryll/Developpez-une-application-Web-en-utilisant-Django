@@ -23,20 +23,23 @@ from django.urls import path
 from django.contrib.auth.views import LoginView
 
 import authentication.views
+import flux.views
+import ticket.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path("", views.login, name='feed'),
-    # path('signup/', views.signup, name='signup'),
-
     #conection
-    path('', LoginView.as_view(template_name='authentication/login.html', redirect_authenticated_user=True), name='login'),
-
+    path('', LoginView.as_view(template_name='authentication/login.html'), name='login'),
     #register
     path('signup/', authentication.views.signup_page, name='signup'),
-   
     #deconection
     path('logout/', authentication.views.logout_user, name='logout'),
+    #pag ppal
+    path('flux/', flux.views.flux, name='flux'),
+    path('ticket-new/', ticket.views.ticket_create, name='ticket-new'),
+    # path('ticket/<int:pk>', ticket.views.view_ticket, name='ticket-views')
+    path('ticket/<int:ticket_id>/edit', ticket.views.edit_ticket, name='edit-ticket'),
+   
 
 ] 
 
