@@ -3,7 +3,8 @@ from django.contrib.auth import logout
 from django.conf import settings
 from authentication import forms
 from django.contrib import messages
-
+from django.contrib.auth.models import User
+from .models import Relationship
 #register
 def signup_page(request):
     form = forms.UserRegisterForm()
@@ -22,3 +23,13 @@ def signup_page(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+def follow(request):
+    current_user = request.user
+    user_serch = request.GET.get("serch")
+    if user_serch:
+        to_user = User.objects.get(username=user_serch)
+        to_user_id = to_user
+        rel = Relationship(from_user=current_user, to_user=to_user_id)
+        rel.save()
+    return render(request, 'authentication/follow_users_form.html')

@@ -10,11 +10,15 @@
         <div class="card-body">
           <h3 class="card-title mb-4">Suivre d'autres utilisateurs</h3>
 
-          <form method="post">
-            {# {{ form.as_p }}
-            {% csrf_token %} #}
-            <button type="submit" class="btn btn-outline-primary">Envoyer</button>
-        </form>
+          <form method="get">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nom d'utilisateurs" aria-label="Recipient's username" aria-describedby="basic-addon2" name="serch">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-primary">Envoyer</button>
+                </div>
+            </div>
+            </form>
 
         </div> 
     </div>
@@ -22,7 +26,9 @@
     <div class="col-10 card text-center mb-4">
         <div class="card-body">
            
-            <h3 class="card-title mb-4">Abonnements</h3>
+            <h3 class="card-title mb-4">Abonnements : {{ user.profile.followers.count }}</h3>
+            <p>{{ user.profile.followers }}</p>
+            
             
             
         </div> 
@@ -31,10 +37,9 @@
     <div class="col-10 card text-center">
         <div class="card-body">
            
-            <h3 class="card-title mb-4">Abonnés</h3>
-
-            
-            
+            <h3 class="card-title mb-4">Abonnés : {{ user.profile.followings.count }}</h3>
+            <p>{{ user.profile.followings }}</p>
+  
         </div> 
     </div>
 

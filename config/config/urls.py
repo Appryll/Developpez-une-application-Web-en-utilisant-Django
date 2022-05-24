@@ -39,8 +39,7 @@ urlpatterns = [
     path('ticket-new/', ticket.views.ticket_create, name='ticket-new'),
     # path('ticket/<int:pk>', ticket.views.view_ticket, name='ticket-views')
     path('ticket/<int:ticket_id>/edit', ticket.views.edit_ticket, name='edit-ticket'),
-   
-
+    path('abonnements/', authentication.views.follow, name='abonnements'),
 ] 
 
 if settings.DEBUG: 
