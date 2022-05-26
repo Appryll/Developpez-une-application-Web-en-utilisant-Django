@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'ticket.apps.TicketConfig',
     'flux.apps.FluxConfig',
+    'review.apps.ReviewConfig',
 ]
 
 MIDDLEWARE = [

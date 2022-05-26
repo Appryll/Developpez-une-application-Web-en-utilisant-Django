@@ -25,6 +25,7 @@ from django.contrib.auth.views import LoginView
 import authentication.views
 import flux.views
 import ticket.views
+import review.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +41,11 @@ urlpatterns = [
     # path('ticket/<int:pk>', ticket.views.view_ticket, name='ticket-views')
     path('ticket/<int:ticket_id>/edit', ticket.views.edit_ticket, name='edit-ticket'),
     path('abonnements/', authentication.views.follow, name='abonnements'),
+    path('subscriptions/confirm_unsub/<int:pk>/', authentication.views.UnsubscribeView.as_view(), name='confirm-unsub'),
+    # path('unfollow/<str:username>/', authentication.views.unfollow, name='unfollow'),
+
+    #review
+    path('review/', review.views.review_create, name='review-new'),
 ] 
 
 if settings.DEBUG: 

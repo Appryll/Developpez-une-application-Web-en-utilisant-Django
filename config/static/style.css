@@ -16,3 +16,11 @@ body{
 .card{
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
+
+#id_rating {
+    display: inline-flex;
+}
+
+#id_rating_0, #id_rating_1, #id_rating_2, #id_rating_3, #id_rating_4, #id_rating_5 {
+    margin-left: 5px;
+}

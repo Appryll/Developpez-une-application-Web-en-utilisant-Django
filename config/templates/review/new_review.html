@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}<title>CREATE TICKET</title>{% endblock title %}
+{% block title %}<title>CREATE REVIEW</title>{% endblock title %}
 
 {% block content %}
 
 <div class="row justify-content-center mt-4">
 
     <div class="card text-center col-4 ">
-        <h3 class="card-title mb-4">Create un nouveau ticket</h3>
+        <h3 class="card-title mb-4">Créer une critique</h3>
         <div class="card-body">
             <form action="" method="post" novalidate enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ tic_form.as_p }}
+                {{ rev_form.as_p }}
                 <button type="submit" class="btn btn-outline-primary">Envoyer</button>
                 <a href="{% url 'flux' %}" class="btn btn-outline-danger">Cancel</a>
             </form>
