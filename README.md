@@ -1,6 +1,6 @@
 # Projet 9 - Développez une application Web en utilisant Django - OpenClassrooms
 
-<img src="media/LogoLITReview.png" widht="250" height="250">
+<img src="media/img/LogoLITReview.png" widht="250" height="250">
 
 Cet application web permet à une communauté d'utilisateurs de consulter ou de solliciter une critique de livres ou d’articles à la demande.
 
