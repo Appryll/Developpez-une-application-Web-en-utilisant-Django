@@ -38,10 +38,11 @@ urlpatterns = [
     #pag ppal
     path('flux/', flux.views.flux, name='flux'),
     #my_posts
-    path('my_posts/', flux.views.user_posts, name='my_posts'),
+    path('my_posts/', flux.views.user_posts, name='my-posts'),
     #ticket
     path('ticket-new/', ticket.views.ticket_create, name='ticket-new'),
     path('ticket/<int:ticket_id>/edit', ticket.views.edit_ticket, name='edit-ticket'),
+    path('ticket/<int:pk>/delete/', ticket.views.TicketDeleteView.as_view(), name='ticket-delete'),
     #abonnements
     path('abonnements/', authentication.views.follow, name='abonnements'),
     path('subscriptions/confirm_unsub/<int:pk>/', authentication.views.UnsubscribeView.as_view(), name='confirm-unsub'),
