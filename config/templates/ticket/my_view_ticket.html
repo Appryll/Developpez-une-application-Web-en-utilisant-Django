@@ -1,0 +1,39 @@
+{% load humanize %}
+
+{% block title %}<title>TICKET</title>{% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-around mt-4">
+  <div class="card text-center col-6">
+     
+    <div class="d-flex justify-content-around">
+      {% if post.user != user %}
+        {% if post.user in followed_users %}
+          <p>Ton following {{ post.user }} a publié un ticket</p>
+        {% else %}
+          <p>{{ post.user }} a publié un ticket</p>
+        {% endif %}
+      {% else %}
+        <p>Vous avez publié un ticket</p>
+      {% endif %}
+
+      <p>{{post.time_created | naturaltime }}</p>
+    </div>
+
+    <div class="card-body">
+        <h3 class="card-title mb-4">{{post.title}}</h3>
+        <p>{{post.description}}</p>
+        <img src="{{post.image.url}}" alt=""> 
+    </div> 
+
+      {% if post.user == user %}
+      <div>
+        <a href="#" class="btn btn-outline-primary">Modifier</a>
+        <a href="#" class="btn btn-outline-danger">Supprimer</a>
+      </div>
+      {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,76 @@
+{% load humanize %}
+
+{% block title %}<title>REVIEW</title>{% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-around mt-4">
+
+  <div class="card text-center col-6">
+    
+    <div class="d-flex justify-content-around">
+      {% if post.user != user %}
+          {% if post.user in followed_users %}
+          <p>Ton following {{ post.user }} a publié une critique</p>
+          {% else %}
+          <p>{{ post.user }} a publié une critique</p>
+          {% endif %}
+      {% else %}
+          <p>Vous avez publié une critique</p>
+      {% endif %}
+
+      <p>{{post.time_created | naturaltime }}</p>
+    </div>
+
+    <div class="card-body">
+      <div class="d-inline-flex">
+        <h3 class="card-title mb-4">{{post.headline}}</h3><h4>- {{post.rating}} Ètoiles</h4> 
+      </div>
+
+        <p>{{post.body}}</p> 
+
+        {% if post.user == user %}
+          <a href="#" class="btn btn-outline-primary">Modifier</a>
+          <a href="#" class="btn btn-outline-danger">Supprimer</a>
+        {% endif %} 
+    </div> 
+
+      <!-- Ticket section -->
+      <div class="row justify-content-around mt-4 mb-4">
+        <div class="card text-center col-6  border border-light">
+          <div class="d-flex justify-content-around">
+            {% if post.user != user %}
+              {% if post.user in followed_users %}
+                <p>Ton following {{ post.user }} a publié un ticket</p>
+              {% else %}
+                <p>{{ post.user }} a publié un ticket</p>
+              {% endif %}
+            {% else %}
+              <p>Vous avez publié un ticket</p>
+            {% endif %}
+
+            <p>{{post.ticket.time_created | naturaltime }}</p>
+          </div>
+      
+          <div class="card-body">
+            <h4 class="card-title mb-4">{{post.ticket.title}}</h4>  
+            <p>{{post.ticket.description}}</p>
+            <img src="{{post.ticket.image.url}}" alt=""> 
+          </div> 
+
+            {% if post.user == user %}
+            <div>
+              <a href="#" class="btn btn-outline-primary">Modifier</a>
+              <a href="#" class="btn btn-outline-danger">Supprimer</a>
+            </div>
+            {% endif %}
+
+        </div>
+      </div>
+      <!-- Fin Ticket section -->
+
+  </div>
+
+</div>
+      
+{% endblock content %}

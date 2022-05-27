@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Relationship
 
-
 #register
 def signup_page(request):
     form = forms.UserRegisterForm()

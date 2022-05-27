@@ -34,9 +34,3 @@ def review_create(request):
     return render(request,'review/new_review.html', {'tic_form':tic_form,'rev_form':rev_form})
 
 
-@login_required
-def flux_rev(request):
-    reviews = models.Review.objects.all()
-    return render(request, 
-            'flux/flux.html', 
-            {'reviews': reviews})

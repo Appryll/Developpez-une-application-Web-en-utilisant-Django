@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load humanize %}
 
 {% block title %}<title>FLUX</title>{% endblock title %}
 
@@ -14,48 +13,14 @@
     </div>
 </div>
 
-{% for ticket in tickets %}
-<div class="row justify-content-around mt-4">
-    <div class="card text-center col-6">
-       
-        <h3 class="card-title mb-4">{{ticket.title}}</h3>
+{% for post in posts %}
 
-        <div class="card-body">
-            <div class="d-flex justify-content-around">
-                {% if ticket.user.id == user.id %}
-                    <p>Vous avez publiè un ticket</p>
-                {% endif %}
-                <p>{{ticket.time_created | naturaltime}}</p>
-            </div>
-            <p>{{ticket.description}}</p>
-            <img src="{{ticket.image.url}}" alt=""> 
-        </div> 
+    {% if post.content_type == 'REVIEW' %}
+        {% include 'review/view_review.html' %}
+    {% elif post.content_type == 'TICKET' %}
+        {% include 'ticket/view_ticket.html' %}
+    {% endif %}
 
-    </div>
-</div>
 {% endfor %}
-
-{% for review in reviews %}
-<div class="row justify-content-around mt-4">
-    <div class="card text-center col-6">
-       
-        <h3 class="card-title mb-4">{{review.headline}}</h3>
-
-        <div class="card-body">
-            <div class="d-flex justify-content-around">
-                {% if review.user.id == user.id %}
-                    <p>Vous avez publiè un ticket</p>
-                {% endif %}
-                <p>{{review.time_created | naturaltime}}</p>
-            </div>
-            <p>{{review.body}}</p>
-            <p>{{review.rating}}</p>
-            
-        </div> 
-           
-    </div>
-</div>
-{% endfor %}
-
 
 {% endblock content %}

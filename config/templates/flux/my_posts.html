@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}<title>MY POSTS</title>{% endblock title %}
+
+{% block content %}
+
+{% for post in posts %}
+
+    {% if post.content_type == 'REVIEW' %}
+        {% include 'review/my_view_review.html' %}
+    {% elif post.content_type == 'TICKET' %}
+        {% include 'ticket/my_view_ticket.html' %}
+    {% endif %}
+
+{% endfor %}
+
+{% endblock content %}

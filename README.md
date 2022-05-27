@@ -1,6 +1,6 @@
 # Projet 9 - Développez une application Web en utilisant Django - OpenClassrooms
 
-<img src="media/img/LogoLITReview.png" widht="250" height="250">
+<img src="config\media\img\Logo LITReview.png" widht="250" height="250">
 
 Cet application web permet à une communauté d'utilisateurs de consulter ou de solliciter une critique de livres ou d’articles à la demande.
 
@@ -88,6 +88,13 @@ Dans le terminal, naviguer vers le dossier souhaité.
 
 ###### - Quitter l'envirement virtuel
     deactivate
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+###### - Générer un rapport flake8
+
+    $ flake8 --format=html --htmldir=flake8_rapport
+
  
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 

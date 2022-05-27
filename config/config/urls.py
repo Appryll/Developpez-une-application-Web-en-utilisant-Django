@@ -37,14 +37,15 @@ urlpatterns = [
     path('logout/', authentication.views.logout_user, name='logout'),
     #pag ppal
     path('flux/', flux.views.flux, name='flux'),
+    #my_posts
+    path('my_posts/', flux.views.user_posts, name='my_posts'),
+    #ticket
     path('ticket-new/', ticket.views.ticket_create, name='ticket-new'),
-    # path('ticket/<int:pk>', ticket.views.view_ticket, name='ticket-views')
     path('ticket/<int:ticket_id>/edit', ticket.views.edit_ticket, name='edit-ticket'),
+    #abonnements
     path('abonnements/', authentication.views.follow, name='abonnements'),
     path('subscriptions/confirm_unsub/<int:pk>/', authentication.views.UnsubscribeView.as_view(), name='confirm-unsub'),
-    # path('unfollow/<str:username>/', authentication.views.unfollow, name='unfollow'),
-
-    #review
+    #critiques
     path('review/', review.views.review_create, name='review-new'),
 ] 
 
