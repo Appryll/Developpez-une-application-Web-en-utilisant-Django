@@ -11,9 +11,9 @@
     <div class="d-flex justify-content-around">
       {% if post.user != user %}
           {% if post.user in followed_users %}
-          <p>Ton following {{ post.user }} a publié une critique</p>
+          <p>Ton followed <span style="text-decoration-line: underline; text-transform:uppercase;">{{ post.user }}</span> a publié une critique</p>
           {% else %}
-          <p>{{ post.user }} a publié une critique</p>
+          <p><span style="text-decoration-line: underline; text-transform:uppercase;">{{ post.user }}</span> a publié une critique</p>
           {% endif %}
       {% else %}
           <p>Vous avez publié une critique</p>
@@ -34,17 +34,15 @@
       <div class="row justify-content-around mt-4 mb-4">
         <div class="card text-center col-6  border border-light">
           <div class="d-flex justify-content-around">
-            {% if post.user != user %}
-              {% if post.user in followed_users %}
-                <p>Ton following {{ post.user }} a publié un ticket</p>
+            {% if post.ticket.user != user %}
+              {% if post.ticket.user in followed_users %}
+                <p>Ticket - <span style="text-decoration-line: underline; text-transform:uppercase;">{{ post.ticket.user }}</span></p>
               {% else %}
-                <p>{{ post.user }} a publié un ticket</p>
+                <p><span style="text-decoration-line: underline; text-transform:uppercase;">{{ post.ticket.user }}</span> a publié un ticket</p>
               {% endif %}
             {% else %}
-              <p>Vous avez publié un ticket</p>
+              <p>Votre ticket</p>
             {% endif %}
-
-            <p>{{post.ticket.time_created | naturaltime }}</p>
           </div>
       
           <div class="card-body">

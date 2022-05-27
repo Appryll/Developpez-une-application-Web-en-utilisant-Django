@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}<title>{{title}}</title>{% endblock title %}
+
+{% block content %}
+
+<fieldset class="form-group">
+
+{% if request.get_full_path == "/review/" %}
+  {{t_form}}
+{% else %}
+<!-- Ticket en response review -->    
+<div class="row justify-content-around mt-4 mb-4">
+  <div class="card text-center col-6">
+    <div class="d-flex justify-content-around">
+      <h4 class="mb-4">Vous  êtes en train de poster un reponse à <span style="text-transform:uppercase;">{{ post.user }}</span></h4>
+      <p>qui a créé ce ticket : {{post.time_created | naturaltime }}</p>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title mb-4">{{post.title}}</h3>
+        <p>{{post.description}}</p>
+        {% if post.image %}
+        <img src="{{post.image.url}}" alt=""> 
+        {% endif %}
+    </div> 
+{% endif %}
+
+
+<div class="row justify-content-center mt-4 mb-4">
+  <div class="card text-center col-11 ">
+      <h3 class="card-title mb-4">Critique: </h3>
+      <h6 class="card-subtitle mb-2 text-muted">Crée une critique en remplisant ce formulaire.</h6>
+        <div class="card-body">
+            <form action="" method="post" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ r_form.as_p }}
+                <button type="submit" class="btn btn-outline-primary">Envoyer</button>
+                <a href="{% url 'flux' %}" class="btn btn-outline-danger">Cancel</a>
+            </form>
+        </div> 
+  </div>
+</div>
+      
+</fieldset>
+
+{% endblock content %}

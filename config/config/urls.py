@@ -48,6 +48,9 @@ urlpatterns = [
     path('subscriptions/confirm_unsub/<int:pk>/', authentication.views.UnsubscribeView.as_view(), name='confirm-unsub'),
     #critiques
     path('review/', review.views.review_create, name='review-new'),
+    path('review/<int:pk>/delete/', review.views.ReviewDeleteView.as_view(), name='review-delete'),
+    path('review/<int:pk>/edit/', review.views.edit_review, name='edit-review'),
+    path('reviews/response/<int:pk>', review.views.review_response, name='response-review'),
 ] 
 
 if settings.DEBUG: 

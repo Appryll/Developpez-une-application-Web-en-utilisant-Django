@@ -10,9 +10,9 @@
     <div class="d-flex justify-content-around">
       {% if post.user != user %}
         {% if post.user in followed_users %}
-          <p>Ton following {{ post.user }} a publié un ticket</p>
+          <p>Ton followed <span style="text-decoration-line: underline; text-transform:uppercase;">{{ post.user }}</span> a publié un ticket</p>
         {% else %}
-          <p>{{ post.user }} a publié un ticket</p>
+          <p><span style="text-decoration-line: underline; text-transform:uppercase;">{{ post.user }}</span> a publié un ticket</p>
         {% endif %}
       {% else %}
         <p>Vous avez publié un ticket</p>
@@ -35,9 +35,9 @@
           <div class="btn" style="display: grid;">
             <a class="btn btn-outline-info btn-md" href="#">
               {% if reply.user == user %}
-                View your response
+                Voir votre réponse
               {% else %}
-                View response from {{ reply.user }}
+                Voir la critique que <span style="text-transform:uppercase;">{{ reply.user }}</span> a créé
               {% endif %}
             </a>
           </div>
@@ -46,11 +46,11 @@
 
     {% elif post not in replied_tickets %}
       <div class="btn" style="display: grid;">
-        <a type="button" class="btn btn-outline-info btn-md" href="#">
+        <a type="button" class="btn btn-outline-info btn-md" href="{% url 'response-review' post.id %}">
           {% if post.user == user %}
-            Créer une critique
+            Répondre à votre ticket
           {% else %}
-            Créer une critique en réponse à {{ post.user }}
+            Créer une critique en réponse à <span style="text-transform:uppercase;">{{ post.user }}</span>
           {% endif %}
         </a>
       </div>

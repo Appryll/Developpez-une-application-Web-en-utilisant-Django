@@ -1,5 +1,11 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{
-    background: yellowgreen;
+    background-color: #f4f9f9;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .nav-link {
@@ -24,3 +30,15 @@ body{
 #id_rating_0, #id_rating_1, #id_rating_2, #id_rating_3, #id_rating_4, #id_rating_5 {
     margin-left: 5px;
 }
+
+footer {
+    height:40px; 
+    width: 100%; 
+    background-attachment: scroll;
+    background-color: #5bbecdbd;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
+    position: absolute,
+}   
+
