@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User #table user
 from PIL import Image
 
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='img_default.png', upload_to='profile_img')
@@ -19,7 +18,6 @@ class Profile(models.Model):
         user_ids = Relationship.objects.filter(to_user=self.user)\
                                                 .values_list('from_user_id', flat=True)
         return User.objects.filter(id__in=user_ids)
-
 
 class Relationship(models.Model):
     from_user = models.ForeignKey(User, related_name='relationships', on_delete=models.CASCADE)

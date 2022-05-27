@@ -35,8 +35,8 @@ def review_create(request):
         rev_form = ReviewForm()
         tic_form = TicketForm()
     
-    return render(request,'review/new_review.html', {'tic_form':tic_form,'rev_form':rev_form, 
-    'title': 'CREATE REVIEW', 'anonce': 'Créer une review'})
+    return render(request,'review/new_review.html', {'tic_form':tic_form,'rev_form':rev_form, 'title': 'CREATE REVIEW',
+                                                     'anonce': 'Créer une review'})
 
 @login_required
 def edit_review(request, pk):
@@ -54,7 +54,8 @@ def edit_review(request, pk):
         r_form = ReviewForm(instance=review)
 
     return render(request, 'review/new_review.html', {'rev_form': r_form,'post': review.ticket,
-        'title': 'MODIFIER VOTRE REVIEW', 'anonce': 'Modifier votre Review'})
+                                                      'title': 'MODIFIER VOTRE REVIEW',
+                                                      'anonce': 'Modifier votre Review'})
 
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review

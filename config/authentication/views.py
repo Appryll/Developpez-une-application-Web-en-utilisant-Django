@@ -16,7 +16,8 @@ def signup_page(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
-            messages.success(request, f'Utilisateur {username} créé avec succès. Maintenaint vous pouvez vous connecter')
+            messages.success(request, f'Utilisateur {username} créé avec succès. Maintenaint vous pouvez vous '
+                                      f'connecter')
             return redirect(settings.LOGIN_REDIRECT_URL)
         else:
             form = forms.UserRegisterForm()
@@ -39,12 +40,8 @@ def follow(request):
     user_follows = Relationship.objects.filter(from_user=request.user).order_by('to_user')
     followed_by = Relationship.objects.filter(to_user=request.user).order_by('from_user')
 
-    context = {
-        'user_follows': user_follows,
-        'followed_by': followed_by,
-    }
-
-    return render(request, 'authentication/follow_users_form.html', context)
+    return render(request, 'authentication/follow_users_form.html', {'user_follows': user_follows,
+                                                                     'followed_by': followed_by,})
 
 class UnsubscribeView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Relationship

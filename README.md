@@ -1,8 +1,9 @@
 # Projet 9 - Développez une application Web en utilisant Django - OpenClassrooms
 
-<img src="config\media\img\Logo LITReview.png" widht="250" height="250">
+<img src="config\media\img\Logo LITReview.png" width="200" height="250">
 
-Cet application web permet à une communauté d'utilisateurs de consulter ou de solliciter une critique de livres ou d’articles à la demande.
+Cet application web permet à une communauté d'utilisateurs de consulter ou de solliciter une critique de livres 
+ou d’articles à la demande.
 
 ## Mise en place du projet: 
 
@@ -29,13 +30,15 @@ Dans Windows Powershell, naviguer vers le dossier souhaité.
     $ cd config
     $ python manage.py runserver
 
-    Le site sera accéssible à l'adresse local : 127.0.0.1:8000 sur le port 8000 par défaut. Si le port n'est pas disponible :
+    Le site sera accéssible à l'adresse local : 127.0.0.1:8000 sur le port 8000 par défaut. Si le port n'est pas 
+    disponible :
     $ python manage.py runserver <your_port>
 
 ###### - Créer un super user :
     $ python manage.py createsuperuser
     
-    Suivre les indications de la console. Une fois le super user créé, vous pouvez vous connecter à l'espace d'admin du site grâce à son identifiant et mot de passe.
+    Suivre les indications de la console. Une fois le super user créé, vous pouvez vous connecter à l'espace d'admin 
+    du site grâce à son identifiant et mot de passe.
 
 ###### - Naviguer vers l'éspace d'administration
     Ouvrir un navigateur, et aller à l'adresse du site en ajouter /admin. ex : http://127.0.0.1:8000/admin/
@@ -70,13 +73,15 @@ Dans le terminal, naviguer vers le dossier souhaité.
     $ cd config
     $ python3 manage.py runserver
 
-    Le site sera accéssible à l'adresse local : 127.0.0.1:8000 sur le port 8000 par défaut. Si le port n'est pas disponible :
+    Le site sera accéssible à l'adresse local : 127.0.0.1:8000 sur le port 8000 par défaut. Si le port n'est pas 
+    disponible :
     $ python3 manage.py runserver <your_port>
 
 ###### - Créer un super user :
     $ python3 manage.py createsuperuser
     
-    Suivre les indications de la console. Une fois le super user créé, vous pouvez vous connecter à l'espace d'admin du site grâce à son identifiant et mot de passe.
+    Suivre les indications de la console. Une fois le super user créé, vous pouvez vous connecter à l'espace d'admin 
+    du site grâce à son identifiant et mot de passe.
 
 ###### - Naviguer vers l'éspace d'administration
     Ouvrir un navigateur, et aller à l'adresse du site en ajouter /admin. ex : http://127.0.0.1:8000/admin/
@@ -89,14 +94,13 @@ Dans le terminal, naviguer vers le dossier souhaité.
 ###### - Quitter l'envirement virtuel
     deactivate
 
----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+------------------------------------------------------------------------------------------------------------------------
 ###### - Générer un rapport flake8
 
     $ flake8 --format=html --htmldir=flake8_rapport
 
  
--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ## L’application permet de :
     ● demander des critiques de livres ou d’articles, en créant un ticket ;
@@ -104,10 +108,12 @@ Dans le terminal, naviguer vers le dossier souhaité.
 
 ## Un utilisateur peut :
     ●  s’inscrire et se connecter
-    ● consulter un flux contenant les derniers tickets et les commentaires des utilisateurs qu'il suit, classés par ordre chronologique, les plus récents en premier ;
+    ● consulter un flux contenant les derniers tickets et les commentaires des utilisateurs qu'il suit, classés par 
+    ordre chronologique, les plus récents en premier ;
     ● créer de nouveaux tickets pour demander une critique sur un livre/article ;
     ● créer des critiques en réponse à des tickets ;
-    ● créer des critiques qui ne sont pas en réponse à un ticket. Dans le cadre d'un processus en une étape, l'utilisateur créera un ticket puis un commentaire en réponse à son propre ticket ;
+    ● créer des critiques qui ne sont pas en réponse à un ticket. Dans le cadre d'un processus en une étape,        
+    l'utilisateur créera un ticket puis un commentaire en réponse à son propre ticket ;
     ● voir, modifier et supprimer ses propres tickets et commentaires ;
     ● suivre les autres utilisateurs en entrant leur nom d'utilisateur ;
     ● voir qui il suit et suivre qui il veut ;

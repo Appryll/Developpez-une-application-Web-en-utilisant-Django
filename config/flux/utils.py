@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
-
 from review.models import Review, Ticket
 from authentication.models import Relationship
-
 
 def get_user_follows(user):
     """Returns list of users followed by current user"""
@@ -11,7 +9,6 @@ def get_user_follows(user):
     for follow in follows:
         followed_users.append(follow.to_user)
     return followed_users
-
 
 def get_user_viewable_reviews(user: User):
     """
@@ -59,7 +56,6 @@ def get_user_viewable_tickets(user: User):
 
         except Review.DoesNotExist:
             pass
-
     return tickets
 
 def get_replied_tickets(tickets):
@@ -82,6 +78,4 @@ def get_replied_tickets(tickets):
 
         except Review.DoesNotExist:
             pass
-
     return replied_tickets, replied_reviews
-

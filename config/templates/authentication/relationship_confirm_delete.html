@@ -11,7 +11,8 @@
         <div class="card-body">
             <form action="" method="post">
               {% csrf_token %}
-              <p class="card-text">Vous souhaitez vous désabonner de l'utilisateur <span style="text-transform:uppercase; font-weight: bold;">{{ unsub.to_user }}</span></p>
+              <p class="card-text">Vous souhaitez vous désabonner de l'utilisateur
+                  <span style="text-transform:uppercase; font-weight: bold;">{{ unsub.to_user }}</span></p>
               <button type="submit" class="btn btn-outline-primary">Oui</button>
               <a class="btn btn-outline-secondary" href="{% url 'abonnements' %}">Non</a>
             </form>

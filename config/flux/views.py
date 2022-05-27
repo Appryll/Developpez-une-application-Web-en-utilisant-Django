@@ -11,15 +11,11 @@ from django.contrib.auth.models import User
 @login_required
 def flux(request):
     followed_users = get_user_follows(request.user)
-
     reviews = get_user_viewable_reviews(request.user)
     reviews = reviews.annotate(content_type=Value('REVIEW', CharField()))
-
     tickets = get_user_viewable_tickets(request.user)
     tickets = tickets.annotate(content_type=Value('TICKET', CharField()))
-
     replied_tickets, replied_reviews = get_replied_tickets(tickets)
-
     posts_list = sorted(chain(reviews, tickets), key=lambda post: post.time_created, reverse=True)
 
     if posts_list:
@@ -28,8 +24,9 @@ def flux(request):
         posts = paginator.get_page(page)
     else:
         posts = None
-    
-    return render(request, 'flux/flux.html', context = {'posts': posts, 'replied_tickets': replied_tickets, 'replied_reviews': replied_reviews,
+
+    return render(request, 'flux/flux.html', context = {'posts': posts, 'replied_tickets': replied_tickets,
+                                                        'replied_reviews': replied_reviews,
                                                         'title': 'Flux','followed_users': followed_users})
 
 @login_required
@@ -38,17 +35,12 @@ def user_posts(request, pk=None):
         user = get_object_or_404(User, id=pk)
     else:
         user = request.user
-
     followed_users = get_user_follows(request.user)
-
     reviews = Review.objects.filter(user=user)
     reviews = reviews.annotate(content_type=Value('REVIEW', CharField()))
-
     tickets = Ticket.objects.filter(user=user)
     tickets = tickets.annotate(content_type=Value('TICKET', CharField()))
-
     replied_tickets, replied_reviews = get_replied_tickets(tickets)
-
     posts_list = sorted(chain(reviews, tickets), key=lambda post: post.time_created, reverse=True)
 
     if posts_list:
@@ -60,6 +52,6 @@ def user_posts(request, pk=None):
         posts = None
         total_posts = 0
 
-    return render(request, 'flux/my_posts.html', context = {'posts': posts,'title': f"{user.username}'s posts ({total_posts})",
-                                                            'r_tickets': replied_tickets,'r_reviews': replied_reviews,
-                                                            'followed_users': followed_users})
+    return render(request, 'flux/my_posts.html', context = {'posts': posts,'title': f"{user.username}'s posts "
+                                                f"({total_posts})",'r_tickets': replied_tickets,
+                                                'r_reviews': replied_reviews, 'followed_users': followed_users})

@@ -134,12 +134,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'authentication.Profile'
-
 LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'flux'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media/')
-
