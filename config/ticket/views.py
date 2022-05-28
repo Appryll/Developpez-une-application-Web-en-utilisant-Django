@@ -5,15 +5,20 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import DeleteView
+from ticket.models import Ticket
 
 @login_required
 def ticket_create(request):
     if request.method == 'POST':
         form = TicketForm(request.POST, request.FILES)
         if form.is_valid():
-            ticket = form.save(commit=False)
-            ticket.user = request.user
-            ticket.save()
+            image = request.FILES.get('image', None)
+            Ticket.objects.create(
+                user=request.user,
+                title=request.POST['title'],
+                description=request.POST['description'],
+                image=image
+            )
             return redirect('flux')
     else:
         form = TicketForm()

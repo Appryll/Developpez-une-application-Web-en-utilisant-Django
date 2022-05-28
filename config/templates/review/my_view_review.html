@@ -48,7 +48,9 @@
           <div class="card-body">
             <h4 class="card-title mb-4">{{post.ticket.title}}</h4>  
             <p>{{post.ticket.description}}</p>
+            {% if post.ticket.image %}
             <img src="{{post.ticket.image.url}}" alt=""> 
+            {% endif %}
           </div> 
         </div>
       </div>

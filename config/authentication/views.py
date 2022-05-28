@@ -7,6 +7,7 @@ from authentication import forms
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Relationship
+from django.contrib import messages
 
 #register
 def signup_page(request):
@@ -32,10 +33,17 @@ def follow(request):
     current_user = request.user
     user_serch = request.GET.get("serch")
     if user_serch:
-        to_user = User.objects.get(username=user_serch)
-        to_user_id = to_user
-        rel = Relationship(from_user=current_user, to_user=to_user_id)
-        rel.save()
+        try: 
+            to_user = User.objects.get(username=user_serch)
+            if to_user == current_user:
+                messages.error(request, 'Vous ne pouvez pas vous abonner à vous meme')
+            else:
+                to_user_id = to_user
+                rel = Relationship(from_user=current_user, to_user=to_user_id)
+                rel.save()
+        except User.DoesNotExist:
+                messages.error(request, f'L\'utilisateur {user_serch} n\'existe pas. \
+                    Veuillez bien vérifier que le nom est correctement orthographié et réessayer s\'il vous plait.')
 
     user_follows = Relationship.objects.filter(from_user=request.user).order_by('to_user')
     followed_by = Relationship.objects.filter(to_user=request.user).order_by('from_user')

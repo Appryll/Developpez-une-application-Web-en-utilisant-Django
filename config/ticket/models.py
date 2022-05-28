@@ -11,14 +11,15 @@ class Ticket(models.Model):
 
     IMAGE_MAX_SIZE = (600, 600)
 
-    def resize_image(self):
-        image = Image.open(self.image)
-        image.thumbnail(self.IMAGE_MAX_SIZE)
-        image.save(self.image.path)
+    if image is True:
+        def resize_image(self):
+            image = Image.open(self.image)
+            image.thumbnail(self.IMAGE_MAX_SIZE)
+            image.save(self.image.path)
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.resize_image()
+        def save(self, *args, **kwargs):
+            super().save(*args, **kwargs)
+            self.resize_image()
 
     class Meta:
         ordering = ['-time_created']
