@@ -42,3 +42,42 @@ footer {
     position: absolute,
 }   
 
+.alert{ width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.etoile5::after{ 
+    content: "★★★★★";
+    font-size: 25px;
+    color: #ffe100;
+    padding: 10px;
+}
+
+.etoile4::after{ 
+    content: "★★★★";
+    font-size: 25px;
+    color: #ffe100;
+    padding: 10px;
+}
+
+.etoile3::after{ 
+    content: "★★★";
+    font-size: 25px;
+    color: #ffe100;
+    padding: 10px;
+}
+
+.etoile2::after{ 
+    content: "★★";
+    font-size: 25px;
+    color: #ffe100;
+    padding: 10px;
+}
+
+.etoile1::after{ 
+    content: "★";
+    font-size: 25px;
+    color: #ffe100;
+    padding: 10px;
+}

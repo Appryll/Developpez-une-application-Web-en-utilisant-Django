@@ -121,3 +121,22 @@ Dans le terminal, naviguer vers le dossier souhaité.
 
 ## Un développeur peut :
     ● créer un environnement local en utilisant env, et gérer le site en se basant sur cette documentation.
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+### Liste d'utilisateurs 
+
+-   Nom d'utilisateur: admin  
+    Mot de passe : superuser
+
+-   Nom d'utilisateur: titou  
+    Mot de passe : farine000
+
+-   Nom d'utilisateur: wafou 
+    Mot de passe : farine000
+
+-   Nom d'utilisateur: touni 
+    Mot de passe : farine000
+
+-   Nom d'utilisateur: mei 
+    Mot de passe : farine000
